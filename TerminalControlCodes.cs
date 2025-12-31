@@ -13,7 +13,7 @@ public static class TerminalControlCodes
     public static void ClearScreen()
     {
         CursorAt(1, 1);
-        Console.Write($"{ESCB}J");
+        Console.Write($"{ESCB}0J");
     }
 
     /// <summary>
@@ -109,5 +109,10 @@ public static class TerminalControlCodes
         if (blue < 0) blue = 0;
         if (blue > 255) blue = 255;
         Console.Write($"{ESCB}48;2;{red};{green};{blue}m");
+    }
+
+    public static void DeviceStatusReport()
+    {
+        Console.Write($"{ESCB}6n");
     }
 }
